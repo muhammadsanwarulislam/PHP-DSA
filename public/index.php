@@ -1,9 +1,5 @@
 <?php
 
-use App\App;
-use App\Node;
-use App\Controllers\LinkedList;
-use App\Db;
 use App\LinkedList\SingleLinkedList;
 
 require __DIR__. '/../vendor/autoload.php';
