@@ -25,6 +25,23 @@ class SingleLinkedList {
         return $this;
     }
 
+    public function insertAtLast(string $data): SingleLinkedList
+    {
+        $newNode = new Node($data);
+
+        if($this->_firstNode === NULL) {
+            $this->_firstNode = &$newNode;
+        }else {
+            $currentNode = $this->_firstNode;
+            while($currentNode->next !== NULL) {
+                $currentNode = $currentNode->next;
+            }
+            $currentNode->next = $newNode;
+            $this->_totalNodes++;
+        }
+        return $this;
+    }
+
     public function showSingleLinkedListData()
     {
         echo "Total Nodes:" . $this->_totalNodes."</br>";

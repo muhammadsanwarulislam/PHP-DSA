@@ -8,6 +8,11 @@ $singleLinkedList = new SingleLinkedList();
 $singleLinkedList->insertAtFirst("Data Structures");
 $singleLinkedList->insertAtFirst("PHP OPP");
 $singleLinkedList->insertAtFirst("Computer fundamental");
+
+$singleLinkedList->insertAtLast('1');
+$singleLinkedList->insertAtLast('2');
+$singleLinkedList->insertAtLast('3');
+$singleLinkedList->insertAtLast('4');
 $singleLinkedList->showSingleLinkedListData();
 
 
