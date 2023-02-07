@@ -42,6 +42,23 @@ class SingleLinkedList {
         return $this;
     }
 
+    public function insertBefore(string $data = NULL, string $query = NULL)
+    {
+        $newNode = new Node($data);
+        if($this->_firstNode) {
+            $previous = NULL;
+            $currentNode = $this->_firstNode;
+            while($currentNode !== NULL) {
+                if($currentNode->data === $query) {
+                    $newNode->next = $currentNode;
+                   $previous->next = $newNode;
+                }
+                $previous = $currentNode;
+                $currentNode = $currentNode->next;
+            }
+        }
+    }
+
     public function getNthNode(int $position)
     {
         $count = 0;
