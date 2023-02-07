@@ -13,8 +13,8 @@ $singleLinkedList->insertAtLast('1');
 $singleLinkedList->insertAtLast('2');
 $singleLinkedList->insertAtLast('3');
 $singleLinkedList->insertAtLast('4');
-
-// var_dump($singleLinkedList->getNthNode(5));
+// var_dump($singleLinkedList->search('PHP OPP'));
+// var_dump($singleLinkedList->getNthNode(2)->data);
 $singleLinkedList->showSingleLinkedListData();
 
 

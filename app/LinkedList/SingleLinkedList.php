@@ -46,17 +46,26 @@ class SingleLinkedList {
     {
         $count = 0;
         $currentNode = $this->_firstNode;
-
         if($this->_firstNode !== NULL) {
             while($currentNode !== NULL) {
-                if($count === $position) {
-                    return $currentNode;
-                }
+                if($count === $position) return $currentNode;
                 $count++;
                 $currentNode = $currentNode->next;
             }
         }
 
+    }
+
+    public function search(string $query)
+    {
+        if($this->_totalNodes) {
+            $currentNode = $this->_firstNode;
+            while($currentNode !== NULL) {
+                if($currentNode->data === $query) return $currentNode;
+                $currentNode = $currentNode->next;
+            }
+        }
+        return false;
     }
 
     public function showSingleLinkedListData()
