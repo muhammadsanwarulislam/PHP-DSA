@@ -42,6 +42,23 @@ class SingleLinkedList {
         return $this;
     }
 
+    public function getNthNode(int $position)
+    {
+        $count = 0;
+        $currentNode = $this->_firstNode;
+
+        if($this->_firstNode !== NULL) {
+            while($currentNode !== NULL) {
+                if($count === $position) {
+                    return $currentNode;
+                }
+                $count++;
+                $currentNode = $currentNode->next;
+            }
+        }
+
+    }
+
     public function showSingleLinkedListData()
     {
         echo "Total Nodes:" . $this->_totalNodes."</br>";
