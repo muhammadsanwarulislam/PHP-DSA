@@ -5,8 +5,9 @@ namespace App\Node;
 
 class Node {
     public $next = NULL;
-
-    public function __construct(public $data = NULL)
+    
+    //Constructor property promotion
+    public function __construct(public $data = NULL) 
     {
         
     }
