@@ -5,10 +5,13 @@ declare(strict_types = 1);
 namespace App\LinkedList;
 
 use App\Node\Node;
+use Iterator;
 
-class SingleLinkedList {
-    public $_firstNode  = NULL;
-    public $_totalNodes = 0;
+class SingleLinkedList implements Iterator{
+    private $_firstNode         = NULL;
+    private $_totalNodes        = 0;
+    private $_currentNode       = NULL;
+    private $_currentPosition   = 0;
 
     public function insertAtFirst(string $data): SingleLinkedList
     {
@@ -83,6 +86,33 @@ class SingleLinkedList {
             }
         }
         return false;
+    }
+    
+    public function rewind():void 
+    {
+        $this->_currentPosition = 0;
+        $this->_currentNode = $this->_firstNode;
+    }
+
+    public function valid(): bool
+    {
+        return $this->_currentNode !== NULL;
+    }
+
+    public function key(): mixed
+    {
+        return $this->_currentPosition;
+    }
+
+    public function next(): void
+    {
+        $this->_currentPosition++;
+        $this->_currentNode = $this->_currentNode->next;
+    }
+
+    public function current(): mixed
+    {
+        return $this->_currentNode->data;
     }
 
     public function showSingleLinkedListData()
