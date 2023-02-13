@@ -45,7 +45,7 @@ class SingleLinkedList implements Iterator{
         return $this;
     }
 
-    public function insertBefore(string $data = NULL, string $query = NULL)
+    public function insertBefore(string $data = NULL, string $query = NULL): SingleLinkedList
     {
         $newNode = new Node($data);
         if($this->_firstNode) {
@@ -60,6 +60,7 @@ class SingleLinkedList implements Iterator{
                 $currentNode = $currentNode->next;
             }
         }
+        return $this;
     }
 
     public function getNthNode(int $position)
@@ -73,7 +74,6 @@ class SingleLinkedList implements Iterator{
                 $currentNode = $currentNode->next;
             }
         }
-
     }
 
     public function search(string $query)
@@ -87,7 +87,38 @@ class SingleLinkedList implements Iterator{
         }
         return false;
     }
-    
+
+    public function deleteFirst()
+    {
+        if($this->_firstNode !== NULL) {
+            if($this->_firstNode->next !== NULL) $this->_firstNode = $this->_firstNode->next;
+            else $this->_firstNode = NULL;
+            $this->_totalNodes--;
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    public function deleteLast()
+    {
+        if($this->_firstNode !== NULL) {
+            $currentNode = $this->_firstNode;
+            if($currentNode->next === NULL) {
+                $this->_firstNode = NULL;
+            }else {
+                $previousNode = NULL;
+                while($currentNode->next !== NULL){
+                    $previousNode = $currentNode;
+                    $currentNode = $currentNode->next;
+                }
+                $previousNode->next = NULL;
+                $this->_totalNodes--;
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
+
     public function rewind():void 
     {
         $this->_currentPosition = 0;
