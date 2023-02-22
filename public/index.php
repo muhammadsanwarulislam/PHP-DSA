@@ -26,19 +26,10 @@ require __DIR__. '/../vendor/autoload.php';
 
 $router = new App\Router();
 
-$router->register(
-    '/',
-    function(){
-        echo 'Single linked list';
-    }
-);
+$router
+    ->register('/',[App\Classes\Home::class, 'index'])
+    ->register('/create',[App\Classes\Home::class, 'create']);
 
-$router->register(
-    '/double',
-    function(){
-        echo 'Double linked list';
-    }
-);
 
 echo $router->resolve($_SERVER['REQUEST_URI']);
 
